@@ -1,0 +1,12 @@
+server {
+  listen       <%= port %>;
+  server_name  <%= vhost %>.<%= domain %>;
+
+  access_log  /var/www/<%= domain %>/<%= vhost %>/logs/access.log  main;
+
+  location / {
+    root   /var/www/<%= domain %>/<%= vhost %>/htdocs;
+    index  index.php index.html index.htm;
+  }
+}
+

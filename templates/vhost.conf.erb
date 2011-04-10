@@ -1,6 +1,6 @@
 server {
   listen       <%= port %>;
-  server_name  <%= vhost %>.<%= domain %>;
+  server_name  <%= vhost %>.<%= domain %> <%= aliases.join(", ");
 
   access_log  /var/www/<%= domain %>/<%= vhost %>/logs/access.log  main;
 

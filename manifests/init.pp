@@ -57,10 +57,14 @@ class nginx {
 		}
 	}
 
-	define vhost($vhost, $domain, $packages, $port=$port){
+	define vhost($vhost, $domain, $aliases=[], $catchall=false, $packages=[], $port=$port){
 		include "nginx"
 
-		$linkname = "${name}.conf"
+		if $catchall {
+			$linkname = "000-${name}.conf"
+		} else {
+			$linkname = "${name}.conf"
+		}
 
 		file{"/etc/nginx/sites-available/${name}.conf":
 			owner => root,

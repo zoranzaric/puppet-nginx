@@ -79,6 +79,14 @@ class nginx {
 			notify => Service["nginx"]
 		}
 
+		file{"/var/www/${domain}/${vhost}/configs/nginx.conf":
+			owner => root,
+			group => root,
+			mode => 0644,
+			ensure => 'present',
+			notify => Service["nginx"]
+		}
+
 		package{$packages:
 			ensure => latest,
 			notify => Service["nginx"],

@@ -8,5 +8,7 @@ server {
     root   /var/www/<%= domain %>/<%= vhost %>/htdocs;
     index  index.php index.html index.htm;
   }
+
+  include /var/www/<%= domain %>/<%= vhost %>/configs/nginx.conf
 }
 

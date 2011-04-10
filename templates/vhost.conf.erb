@@ -1,8 +1,8 @@
 server {
   listen       <%= port %>;
-  server_name  <%= vhost %>.<%= domain %> <%= aliases.join(", ");
+  server_name  <%= vhost %>.<%= domain %> <%= aliases.join(", ") %>;
 
-  access_log  /var/www/<%= domain %>/<%= vhost %>/logs/access.log  main;
+  access_log  /var/www/<%= domain %>/<%= vhost %>/logs/access-nginx.log  main;
 
   location / {
     root   /var/www/<%= domain %>/<%= vhost %>/htdocs;

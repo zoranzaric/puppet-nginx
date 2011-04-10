@@ -15,8 +15,6 @@
 #
 # Sample Usage:
 #
-#   include "nginx"
-#
 #   nginx::vhost { "foo.bar.com":
 #       vhost => "foo",
 #       domain => "bar.com"
@@ -60,6 +58,8 @@ class nginx {
 	}
 
 	define vhost($vhost, $domain, $packages, $port=$port){
+		include "nginx"
+
 		$linkname = "${name}.conf"
 
 		file{"/etc/nginx/sites-available/${name}.conf":
